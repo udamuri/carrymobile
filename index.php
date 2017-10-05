@@ -1,5 +1,6 @@
 <?php
 include 'ParseClass.php';
+include 'SaveClass.php';
 
 $view = '';
 $alert = '';
@@ -27,6 +28,22 @@ if(isset($_POST['data']))
                   <td>'.$parse['telepon'].'</td>
               </tr>
     </table>';
+
+    //save to db;
+
+    $sc = new ParseClass();
+    $sc->nama = $parse['nama'];
+    $sc->alamat = $parse['alamat'];
+    $sc->kode_pos = $parse['kode_pis'];
+    $sc->telepon = $parse['telepon'];
+    if($sc->save())
+    {
+        $alert = '<div class="alert alert-success" role="alert">New record created successfully</div>';
+    }
+    else
+    {
+      $alert = '<div class="alert alert-success" role="alert">New record created successfully</div>';
+    }
 }
 
 ?>
