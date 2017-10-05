@@ -1,3 +1,35 @@
+<?php
+include 'ParseClass.php';
+
+$view = '';
+$alert = '';
+if(isset($_POST['data']))
+{
+    $pc = new ParseClass();
+    $pc->data = $_POST['data'];
+    $parse = $pc->getParseData();
+
+    $view = '<table class="table table-bordered">
+              <tr>
+                  <td>Nama</td>
+                  <td>'.$parse['nama'].'</td>
+              </tr>
+              <tr>
+                  <td>Alamat</td>
+                  <td>'.$parse['alamat'].'</td>
+              </tr>
+              <tr>
+                  <td>Kode Pos</td>
+                  <td>'.$parse['kode_pos'].'</td>
+              </tr>
+              <tr>
+                  <td>Telepon</td>
+                  <td>'.$parse['telepon'].'</td>
+              </tr>
+    </table>';
+}
+
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -25,6 +57,28 @@
     <![endif]-->
   </head>
   <body>
-    
+      <div class="container">
+        <div class="row">
+            <div class="col-md-6"> 
+                <?=$alert?>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <form action="index.php" method="post">
+                  <div class="form-group">
+                    <label for="data">Data</label>
+                    <input type="text" class="form-control" id="data" name="data" value="MURIBUDIMAN Taman Surya 5 Blok GG4 No. 57 Jakarta Barat Indonesia 11730 Tel. +62818-53-0817" placeholder="Data">
+                  </div>
+                  <button type="submit" class="btn btn-default">OK</button>
+                </form>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <?=$view?>
+            </div>
+        </div>
+      </div>
   </body>
 </html>
