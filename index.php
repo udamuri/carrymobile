@@ -31,10 +31,10 @@ if(isset($_POST['data']))
 
     //save to db;
 
-    $sc = new ParseClass();
+    $sc = new SaveClass();
     $sc->nama = $parse['nama'];
     $sc->alamat = $parse['alamat'];
-    $sc->kode_pos = $parse['kode_pis'];
+    $sc->kode_pos = $parse['kode_pos'];
     $sc->telepon = $parse['telepon'];
     if($sc->save())
     {
