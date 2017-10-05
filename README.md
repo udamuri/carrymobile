@@ -1,6 +1,6 @@
 # carrymobile
 
-Table structure for table `nestamenu`
+Table structure for table `dbcarry`
 -----
 ```SQL
 
